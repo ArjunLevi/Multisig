@@ -1,0 +1,18 @@
+{
+    "compilerOptions": {
+        "target": "es2015",
+        "module": "commonjs",
+        "strict": true,
+        "esModuleInterop": true,
+        "skipLibCheck": true,
+        "forceConsistentCasingInFileNames": true,
+        "declaration": true,
+        "baseUrl": ".",
+        "rootDir": "src",
+        "outDir": "lib",
+        "typeRoots": [ "./types", "./node_modules/@types"]
+    },
+    "include": [
+        "src/**/*"
+    ]
+}

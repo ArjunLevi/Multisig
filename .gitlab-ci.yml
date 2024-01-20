@@ -1,0 +1,17 @@
+image: docker:$CI_DOCKER_VERSION
+variables:
+  DOCKER_HOST: tcp://docker:2375
+  DOCKER_TLS_CERTDIR: ""
+
+services:
+  - docker:$CI_DOCKER_VERSION-dind
+
+before_script:
+  - docker info
+
+build:
+  stage: build
+  script:
+    - if [ -z "$CI_COMMIT_BRANCH" ]; then CI_COMMIT_BRANCH=$CI_COMMIT_TAG; fi    
+    - docker build -t "$DOCKER_REGISTRY/$CI_PROJECT_NAME:$CI_COMMIT_BRANCH" .
+    - docker push "$DOCKER_REGISTRY/$CI_PROJECT_NAME:$CI_COMMIT_BRANCH"

@@ -1,0 +1,1 @@
+export declare const broadcastTransaction: (url: string, signedTxBytes: Uint8Array | string, org?: string, chainid?: string, token?: string, broadCastMode?: string) => Promise<import("axios").AxiosResponse<any, any>>;

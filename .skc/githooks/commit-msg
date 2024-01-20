@@ -1,0 +1,20 @@
+#!/usr/bin/env node
+const fs = require("fs")
+
+const msgPath = process.argv[2];
+const msg = fs.readFileSync(msgPath, 'utf-8').trim();
+
+const commitRE = /^(feat|fix|docs|UI|refactor|⚡perf|workflow|build|CI|typos|chore|tests|types|wip|release|dep|locale)(\(.+\))?: .{1,50}/
+
+if (!commitRE.test(msg)) {
+    console.log(`Commit message should match this regex pattterns
+    /^(feat|fix|docs|UI|refactor|⚡perf|workflow|build|CI|typos|chore|tests|types|wip|release|dep|locale)(\(.+\))?: .{1,50}/
+    
+    Example:
+    fix: foo made operational
+    wip: middle of refactoring 
+    `)
+    process.exit(1)
+} else {
+    process.exit(0)
+}
