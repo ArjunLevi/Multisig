@@ -1,6 +1,3 @@
-# skud-client-base
-
-This repository contains TS code for a client to communicate with the blockchain. 
 
 ## How to Run
 
